@@ -14,7 +14,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/api/test", (req, res) => {
   res.json({ message: "Server is working" });
 });
-
+app.use("/api", (req, res) => {
+  res.json({ success: false, message: "API route not implemented" });
+});
 // Frontend fallback
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
